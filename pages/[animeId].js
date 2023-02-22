@@ -1,57 +1,34 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
 import React from "react";
-import { useQuery } from "react-query";
 import AnimeDetails from "../components/anime-details/AnimeDetails";
 import MainLayout from "../components/layout/MainLayout";
-import Loading from "../components/small-components/Loading";
 import { getAnimeDetails } from "../src/handlers";
 
 export const getServerSideProps = async (context) => {
-  const { animeId } = context.query;
-
-  const res = await fetch(
-    `https://webdis-x51w.onrender.com/anime-details/${animeId}`
-  );
-
-  const data = await res.json();
-
+  const animedetails = await getAnimeDetails(context.query.animeId)
   return {
     props: {
-      data,
+      animedetails,
     },
   };
 };
 
-function AnimeDetailsPage({ data }) {
-  const router = useRouter();
-  // const { animeId } = router.query;
-
-  // get the anime id from the url with javascript
-  // const animeId = window.location.pathname.split("/")[1];
-
-  // const { data, isLoading, isError, error } = useQuery("animeDetails", () =>
-  //   getAnimeDetails(animeId)
-  // );
-
-  console.log(data);
+function AnimeDetailsPage({ animedetails }) {
+  console.log(animedetails);
   return (
     <>
       <Head>
-        <title>{data?.animeTitle + " - Animestrix "}</title>
-        <meta name="description" content={data?.synopsis} />
-        <meta name="keywords" content={data?.genres} />
+        <title>{animedetails?.animeTitle + " - Animestrix "}</title>
+        <meta name="description" content={animedetails?.synopsis} />
+        <meta name="keywords" content={animedetails?.genres} />
         <meta name="author" content="consumet" />
 
-        <meta property="og:title" content={data?.animeTitle} />
-        <meta property="og:description" content={data?.synopsis} />
-        <meta property="og:image" content={data?.animeImg} />
+        <meta property="og:title" content={animedetails?.animeTitle} />
+        <meta property="og:description" content={animedetails?.synopsis} />
+        <meta property="og:image" content={animedetails?.animeImg} />
       </Head>
       <MainLayout useHead={false}>
-        {/* {isLoading && <Loading />}
-      {isError && <div>Something went wrong</div>} */}
-
-        {data && <AnimeDetails data={data} />}
+        {animedetails && <AnimeDetails data={animedetails} />}
       </MainLayout>
     </>
   );

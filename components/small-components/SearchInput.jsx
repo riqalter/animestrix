@@ -6,8 +6,6 @@ function SearchInput({ isLandingPage = false }) {
   const router = useRouter();
   const handleSubmit = (e) => {
     e.preventDefault();
-    // without react router
-    // window.location.href = `/search/${search}`;
     if (!search) return;
     router.push(`/search/${search}`);
   };

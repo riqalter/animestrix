@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASEURL = "https://webdis-x51w.onrender.com";
+const BASEURL = "https://gogoanime.consumet.stream";
 export const getPopularAnime = async () => {
   const { data } = await axios.get(`${BASEURL}/popular`);
   return data;
@@ -15,8 +15,8 @@ export const getTopAiringAnime = async () => {
   return data;
 };
 
-export const getAnimeDetails = async (anime) => {
-  const { data } = await axios.get(`${BASEURL}/anime-details/${anime}`);
+export const getAnimeDetails = async (animeId) => {
+  const { data } = await axios.get(`${BASEURL}/anime-details/${animeId}`);
   return data;
 };
 

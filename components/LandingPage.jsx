@@ -1,5 +1,4 @@
 import React from "react";
-
 import Link from "next/link";
 import PrimaryButton from "./buttons/PrimaryButton";
 import SearchInput from "./small-components/SearchInput";

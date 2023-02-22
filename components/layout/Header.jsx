@@ -1,11 +1,7 @@
 import React from "react";
 import Logo from "../small-components/Logo";
 import SearchInput from "../small-components/SearchInput";
-import { HiMenuAlt4 } from "react-icons/hi";
-import { IoClose } from "react-icons/io5";
-import { BiSearchAlt } from "react-icons/bi";
 import { CgSearch } from "react-icons/cg";
-import { motion } from "framer-motion";
 import { VscChromeClose } from "react-icons/vsc";
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);

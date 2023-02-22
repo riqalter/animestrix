@@ -28,6 +28,16 @@ function Footer() {
             >
               pawan67
             </a>
+            ,
+            cleaned by
+            <a
+              className="  underline ml-1 "
+              target="_blank"
+              href="https://riq.my.id"
+              rel="noreferrer"
+            >
+              riq
+            </a>
           </p>
         </div>
       </div>
